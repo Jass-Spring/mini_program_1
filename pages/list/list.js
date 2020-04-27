@@ -1,57 +1,18 @@
-// pages/index/index.js
+// pages/list/list.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: null,
-    isShow: true
-  },
 
-  handleClick () {
-    wx.navigateTo({
-      url: '/pages/list/list',
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserInfo()
-  },
 
-  handleGetUserInfo (data) {
-    console.log(data)
-    if (data.detail.rawData) {
-      this.getUserInfo()
-    }
-  },
-
-  getUserInfo () {
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          this.setData({
-            isShow: false
-          })
-        } else {
-          this.setData({
-            isShow: true
-          })
-        }
-      },
-    })
-
-    wx.getUserInfo({
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo
-        })
-      }
-    })
   },
 
   /**
